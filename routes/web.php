@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.index');
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobre_nos'])->name('site.sobre-nos');
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
-Route::get('/login', [\App\Http\Controllers\ContatoController::class, 'Login'])->name('site.login');
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'Login'])->name('site.login');
 
 //agrupamento de rotas definindo como  "/app"
 Route::prefix('/app')->group(function(){
-    Route::get('/cliente', [\App\Http\Controllers\ContatoController::class, 'Cliente'])->name('app.cliente');
-    Route::get('/fornecedor', [\App\Http\Controllers\ContatoController::class, 'Fornecedor'])->name('app.fornecedor');
-    Route::get('/produto', [\App\Http\Controllers\ContatoController::class, 'Produto'])->name('app.produto');
+    Route::get('/cliente', [\App\Http\Controllers\ClienteController::class, 'Cliente'])->name('app.cliente');
+    Route::get('/fornecedor', [\App\Http\Controllers\FornecedorController::class, 'Fornecedor'])->name('app.fornecedor');
+    Route::get('/produto', [\App\Http\Controllers\ProdutoController::class, 'Produto'])->name('app.produto');
 });
 
 
@@ -30,10 +30,12 @@ Route::get('/rota1', function(){
     echo 'Rota 1';
 })->name('site.rota1');
 
+//rota de redirecionamento
 Route::get('/rota2', function(){
     return redirect()->route('site.rota1');
 })->name('site.rota2');
 
+//rota de contingencia
 Route::fallback(function(){
     echo 'A rota acessada não existe. <a href="'.route('site.index').'">clique aqui </a>para ir para a página inicial';
 });
