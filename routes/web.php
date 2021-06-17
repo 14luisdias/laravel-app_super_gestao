@@ -39,7 +39,10 @@ Route::get('/rota2', function(){
 Route::fallback(function(){
     echo 'A rota acessada não existe. <a href="'.route('site.index').'">clique aqui </a>para ir para a página inicial';
 });
+
 //Route::redirect('/rota2' ,'rota1');
+
+
 /* verbos http
 get
 post
