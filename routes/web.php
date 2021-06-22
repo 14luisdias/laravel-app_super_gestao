@@ -33,7 +33,10 @@ Route::get('/teste/{p1}/{p2}', [\App\Http\Controllers\TesteController::class, 't
 Route::fallback(function(){
     echo 'A rota acessada não existe. <a href="'.route('site.index').'">clique aqui </a>para ir para a página inicial';
 });
+
 //Route::redirect('/rota2' ,'rota1');
+
+
 /* verbos http
 get
 post
